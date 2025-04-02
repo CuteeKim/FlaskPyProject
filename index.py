@@ -41,3 +41,13 @@ def add_new_list():
     new_list = {'id': str(uuid.uuid4()), 'name': data['name']}
     todo_lists.append(new_list)
     return jsonify(new_list), 200
+
+@app.route('/todo-list/<list_id>', methods=['DELETE'])
+def delete_list(list_id):
+    global todo_lists, todos
+    list_item = next((l for l in todo_lists if l['id'] == list_id), None)
+    if not list_item:
+        abort(404)
+    todo_lists = [l for l in todo_lists if l['id'] != list_id]
+    todos = [t for t in todos if t['list'] != list_id]
+    return jsonify({'msg': 'success'}), 200
