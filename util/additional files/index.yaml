@@ -2,7 +2,9 @@ openapi: 3.0.1
 info:
   title: Todo-Listen-Verwaltung
   description: "API zur Verwaltung von Todo-Listen und Aufgaben"
-  version: 0.1.0
+  version: 1.0.0
+  contact:
+    email: jpettke@hellmann.com
 servers:
   - url: http://127.0.0.1:5000/
 tags:
