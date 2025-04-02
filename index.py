@@ -58,3 +58,14 @@ def get_entries(list_id):
         abort(404)
     return jsonify([t for t in todos if t['list'] == list_id]), 200
 
+@app.route('/todo-list/<list_id>/entry', methods=['POST'])
+def add_entry(list_id):
+    if not any(l['id'] == list_id for l in todo_lists):
+        abort(404)
+    data = request.get_json()
+    if 'name' not in data or 'description' not in data:
+        abort(400)
+    new_entry = {'id': str(uuid.uuid4()), 'name': data['name'], 'description': data['description'], 'list': list_id}
+    todos.append(new_entry)
+    return jsonify(new_entry), 200
+
