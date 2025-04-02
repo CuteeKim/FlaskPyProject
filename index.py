@@ -32,3 +32,12 @@ def get_list(list_id):
     if not list_item:
         abort(404)
     return jsonify(list_item), 200
+
+@app.route('/todo-list', methods=['POST'])
+def add_new_list():
+    data = request.get_json()
+    if 'name' not in data:
+        abort(400)
+    new_list = {'id': str(uuid.uuid4()), 'name': data['name']}
+    todo_lists.append(new_list)
+    return jsonify(new_list), 200
