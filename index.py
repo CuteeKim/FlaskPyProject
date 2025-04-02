@@ -21,3 +21,7 @@ def apply_cors_header(response):
 @app.errorhandler(405)
 def method_not_allowed(e):
     return jsonify({'error': 'Method Not Allowed'}), 405
+
+@app.route('/todo-lists', methods=['GET'])
+def get_all_lists():
+    return jsonify(todo_lists), 200
