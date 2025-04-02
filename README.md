@@ -85,7 +85,7 @@ python index.py
 
 The server will be started at `http://127.0.0.1:5000`.
 
-## Example Requests
+## Example Requests (BASH)
 
 ### Creating a New To-Do List
 
