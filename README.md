@@ -102,7 +102,7 @@ curl -X POST http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe7
 ### Updating a To-Do Item
 
 ```bash
-curl -X PUT http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe75/entry/1 -H "Content-Type: application/json" -d '{"name": "Buy milk", "description": "Buy 3 liters of milk"}'
+curl -X PUT http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe75/entry/1 -H "Content-Type: application/json" -d '{"name": "Buy Milk", "description": "Buy 3 liters of milk"}'
 ```
 
 ### Deleting a to-do item
