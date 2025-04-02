@@ -51,3 +51,10 @@ def delete_list(list_id):
     todo_lists = [l for l in todo_lists if l['id'] != list_id]
     todos = [t for t in todos if t['list'] != list_id]
     return jsonify({'msg': 'success'}), 200
+
+@app.route('/todo-list/<list_id>/entries', methods=['GET'])
+def get_entries(list_id):
+    if not any(l['id'] == list_id for l in todo_lists):
+        abort(404)
+    return jsonify([t for t in todos if t['list'] == list_id]), 200
+
