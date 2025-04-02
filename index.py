@@ -69,3 +69,14 @@ def add_entry(list_id):
     todos.append(new_entry)
     return jsonify(new_entry), 200
 
+@app.route('/todo-list/<list_id>/entry/<entry_id>', methods=['PUT'])
+def update_entry(list_id, entry_id):
+    entry = next((t for t in todos if t['id'] == entry_id and t['list'] == list_id), None)
+    if not entry:
+        abort(404)
+    data = request.get_json()
+    if 'name' not in data or 'description' not in data:
+        abort(400)
+    entry.update({'name': data['name'], 'description': data['description']})
+    return jsonify(entry), 200
+
