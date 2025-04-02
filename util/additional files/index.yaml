@@ -88,6 +88,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TodoList'
+        400:
+          description: Invalid data, name missing
+          content: {}
         500:
           description: Error while creating todo list
           content: {}
@@ -147,6 +150,12 @@ paths:
                 $ref: '#/components/schemas/TodoEntry'
         400:
           description: Invalid data
+          content: {}
+        404:
+          description: list not found
+          content: {}
+        500:
+          description: Error while creating todo entry
           content: {}
 
   /todo-list/{list_id}/entry/{entry_id}:
