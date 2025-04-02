@@ -1,0 +1,238 @@
+openapi: 3.0.1
+info:
+  title: Todo-Listen-Verwaltung
+  description: "API zur Verwaltung von Todo-Listen und Aufgaben"
+  version: 0.1.0
+servers:
+  - url: http://127.0.0.1:5000/
+tags:
+  - name: Listenverwaltung
+  - name: Aufgabenverwaltung
+paths:
+  /todo-lists:
+    get:
+      tags:
+        - Listenverwaltung
+      summary: Get all todo lists
+      operationId: getAllLists
+      responses:
+        200:
+          description: List of todo lists returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoList'
+
+  /todo-list/{list_id}:
+    get:
+      tags:
+        - Listenverwaltung
+      summary: Get todo list by ID
+      operationId: getList
+      parameters:
+        - name: list_id
+          in: path
+          description: Todo list ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Todo list returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoList'
+        404:
+          description: List not found
+          content: {}
+    delete:
+      tags:
+        - Listenverwaltung
+      summary: Delete a todo list
+      operationId: deleteList
+      parameters:
+        - name: list_id
+          in: path
+          description: Todo list ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: List successfully deleted
+          content: {}
+        404:
+          description: List not found
+          content: {}
+
+  /todo-list:
+    post:
+      tags:
+        - Listenverwaltung
+      summary: Create a new todo list
+      operationId: addList
+      requestBody:
+        description: Todo list object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoList'
+        required: true
+      responses:
+        200:
+          description: Todo list created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoList'
+        500:
+          description: Error while creating todo list
+          content: {}
+
+  /todo-list/{list_id}/entries:
+    get:
+      tags:
+        - Aufgabenverwaltung
+      summary: Get all entries (todos) in a specific list
+      operationId: getEntries
+      parameters:
+        - name: list_id
+          in: path
+          description: Todo list ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of entries returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoEntry'
+        404:
+          description: List not found
+          content: {}
+
+  /todo-list/{list_id}/entry:
+    post:
+      tags:
+        - Aufgabenverwaltung
+      summary: Add a new todo entry to a list
+      operationId: addEntry
+      parameters:
+        - name: list_id
+          in: path
+          description: Todo list ID
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Todo entry object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoEntry'
+        required: true
+      responses:
+        200:
+          description: Todo entry created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoEntry'
+        400:
+          description: Invalid data
+          content: {}
+
+  /todo-list/{list_id}/entry/{entry_id}:
+    put:
+      tags:
+        - Aufgabenverwaltung
+      summary: Update an existing todo entry
+      operationId: updateEntry
+      parameters:
+        - name: list_id
+          in: path
+          description: Todo list ID
+          required: true
+          schema:
+            type: string
+        - name: entry_id
+          in: path
+          description: Todo entry ID
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Todo entry object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoEntry'
+        required: true
+      responses:
+        200:
+          description: Todo entry updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoEntry'
+        404:
+          description: Entry not found
+          content: {}
+
+    delete:
+      tags:
+        - Aufgabenverwaltung
+      summary: Delete a todo entry from a list
+      operationId: deleteEntry
+      parameters:
+        - name: list_id
+          in: path
+          description: Todo list ID
+          required: true
+          schema:
+            type: string
+        - name: entry_id
+          in: path
+          description: Todo entry ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Todo entry deleted
+          content: {}
+        404:
+          description: Entry not found
+          content: {}
+
+components:
+  schemas:
+    TodoList:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+
+    TodoEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        list:
+          type: string
+          format: uuid
