@@ -10,3 +10,14 @@ todo_lists = [
 ]
 
 todos = []
+
+@app.after_request
+def apply_cors_header(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,DELETE,PUT'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
+@app.errorhandler(405)
+def method_not_allowed(e):
+    return jsonify({'error': 'Method Not Allowed'}), 405
