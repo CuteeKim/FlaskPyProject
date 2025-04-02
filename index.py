@@ -25,3 +25,10 @@ def method_not_allowed(e):
 @app.route('/todo-lists', methods=['GET'])
 def get_all_lists():
     return jsonify(todo_lists), 200
+
+@app.route('/todo-list/<list_id>', methods=['GET'])
+def get_list(list_id):
+    list_item = next((l for l in todo_lists if l['id'] == list_id), None)
+    if not list_item:
+        abort(404)
+    return jsonify(list_item), 200
