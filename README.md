@@ -58,7 +58,7 @@ Updates an existing to-do entry based on its ID.
 
 Deletes a specific todo entry based on its ID.
 
-## Setup
+## Setup (BASH)
 
 1. Clone the repository:
 
