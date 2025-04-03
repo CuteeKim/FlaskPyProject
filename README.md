@@ -47,7 +47,8 @@ Request body:
 ```json
 {
 "name": "Task name",
-"description": "Task description" }
+"description": "Task description"
+}
 ```
 
 - `PUT /todo-list/<list_id>/entry/<entry_id>`
@@ -105,16 +106,16 @@ curl -X POST http://localhost:5000/todo-list/<list_id>/entry -H "Content-Type: a
 curl -X PUT http://localhost:5000/todo-list/<list_id>/entry/<entry_id> -H "Content-Type: application/json" -d '{"name": "Buy Milk", "description": "Buy 3 liters of milk"}'
 ```
 
-### Deleting a to-do item
+### Deleting a To-Do Item
 
 ```Bash
 curl -X DELETE http://localhost:5000/todo-list/<list_id>/entry/<entry_id>
 ```
 
-### Deleting a to-do list
+### Deleting a To-Do Iist
 ```Bash
 curl -X DELETE http://localhost:5000/todo-list/<list_id>
 ```
 
 ### License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/CuteeKim/FlaskPyProject/blob/main/LICENSE) file for additional details.
