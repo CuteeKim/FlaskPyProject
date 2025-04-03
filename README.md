@@ -84,7 +84,8 @@ pip install -r requirements.txt
 python index.py
 ```
 
-The server will be started at `http://127.0.0.1:5000`.
+> [!NOTE]
+>The server will be started at `http://127.0.0.1:5000`.
 
 ## Example Requests (BASH)
 
@@ -117,5 +118,6 @@ curl -X DELETE http://localhost:5000/todo-list/<list_id>/entry/<entry_id>
 curl -X DELETE http://localhost:5000/todo-list/<list_id>
 ```
 
-### License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/CuteeKim/FlaskPyProject/blob/main/LICENSE) file for additional details.
+> [!IMPORTANT]
+>### License
+>This project is licensed under the MIT License - see the [LICENSE](https://github.com/CuteeKim/FlaskPyProject/blob/main/LICENSE) file for additional details.
