@@ -1,0 +1,178 @@
+### Flask ###
+# Ignore Flask instance folder
+instance/*
+!instance/.gitignore
+# Ignore web assets cache
+.webassets-cache
+# Ignore environment variables
+.env
+
+### Flask.Python Stack ###
+# Ignore byte-compiled, optimized, or DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore compiled C extensions
+*.so
+
+# Ignore distribution and packaging files
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Ignore PyInstaller temporary and generated files
+*.manifest
+*.spec
+
+# Ignore installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignore unit test and coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Ignore compiled translation files
+*.mo
+*.pot
+
+# Ignore Django-specific files
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Ignore Flask-specific files
+instance/
+
+# Ignore Scrapy project files
+.scrapy
+
+# Ignore Sphinx documentation build files
+docs/_build/
+
+# Ignore PyBuilder files
+.pybuilder/
+target/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore IPython profile settings
+profile_default/
+ipython_config.py
+
+# Ignore pyenv configuration
+.python-version
+
+# Ignore pipenv lock file
+Pipfile.lock
+
+# Ignore poetry lock file
+poetry.lock
+
+# Ignore pdm lock file and config
+pdm.lock
+.pdm.toml
+
+# Ignore PEP 582 package directories
+__pypackages__/
+
+# Ignore Celery-related files
+celerybeat-schedule
+celerybeat.pid
+
+# Ignore SageMath parsed files
+*.sage.py
+
+# Ignore virtual environment directories
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore Spyder project settings
+.spyderproject
+.spyproject
+
+# Ignore Rope project settings
+.ropeproject
+
+# Ignore mkdocs documentation site files
+/site
+
+# Ignore mypy cache
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ignore Pyre type checker files
+.pyre/
+
+# Ignore pytype static analysis files
+.pytype/
+
+# Ignore Cython debug symbols
+cython_debug/
+
+# Ignore PyCharm IDE settings
+.idea/
+
+### Python Patch ###
+# Ignore Poetry local configuration file
+poetry.toml
+
+# Ignore ruff cache
+.ruff_cache/
+
+# Ignore Language Server Protocol (LSP) config files
+pyrightconfig.json
+
+### VisualStudioCode ###
+# Ignore VSCode settings and configurations
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Ignore VSCode local history
+.history/
+
+# Ignore built VSCode extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history files
+.history
+.ionide
