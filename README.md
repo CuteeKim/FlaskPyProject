@@ -96,24 +96,24 @@ curl -X POST http://localhost:5000/todo-list -H "Content-Type: application/json"
 ### Adding a To-Do Item to a List
 
 ```bash
-curl -X POST http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe75/entry -H "Content-Type: application/json" -d '{"name": "Buy Milk", "description": "Buy 2 Liters of Milk"}'
+curl -X POST http://localhost:5000/todo-list/<list_id>/entry -H "Content-Type: application/json" -d '{"name": "Buy Milk", "description": "Buy 2 Liters of Milk"}'
 ```
 
 ### Updating a To-Do Item
 
 ```bash
-curl -X PUT http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe75/entry/1 -H "Content-Type: application/json" -d '{"name": "Buy Milk", "description": "Buy 3 liters of milk"}'
+curl -X PUT http://localhost:5000/todo-list/<list_id>/entry/<entry_id> -H "Content-Type: application/json" -d '{"name": "Buy Milk", "description": "Buy 3 liters of milk"}'
 ```
 
 ### Deleting a to-do item
 
 ```Bash
-curl -X DELETE http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe75/entry/1
+curl -X DELETE http://localhost:5000/todo-list/<list_id>/entry/<entry_id>
 ```
 
 ### Deleting a to-do list
 ```Bash
-curl -X DELETE http://localhost:5000/todo-list/1318d3d1-d979-47e1-a225-dab1751dbe75
+curl -X DELETE http://localhost:5000/todo-list/<list_id>
 ```
 
 ### License
