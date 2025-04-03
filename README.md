@@ -69,13 +69,13 @@ git clone https://github.com/CuteeKim/FlaskPyProject.git
 2. Navigate to the project folder:
 
 ```bash
-cd FlaskPyProject
+cd FlaskPyProject/src
 ```
 
 3. Install the required dependencies:
 
 ```bash
-pip install -r util/requirements.txt
+pip install -r requirements.txt
 ```
 
 4. Run the Flask application:
